@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>AuthorizationItem.qml</file>
+        <file>ControlsItem.qml</file>
+        <file>MyTextField.qml</file>
+        <file>icons/check.svg</file>
+        <file>MyButton.qml</file>
+        <file>icons/download.svg</file>
+        <file>icons/stop.svg</file>
+        <file>LineAndButton.qml</file>
+        <file>DeligateDownload.qml</file>
+        <file>TwoColorProgressBar.qml</file>
+        <file>MainItem.qml</file>
+        <file>icons/stateDownloaded.svg</file>
+        <file>icons/stateError.svg</file>
+        <file>icons/stateNone.svg</file>
+        <file>icons/stateDownloading.svg</file>
+    </qresource>
+</RCC>
