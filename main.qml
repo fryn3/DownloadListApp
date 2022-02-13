@@ -7,6 +7,8 @@ import cpp.DownloadListModel 12.34
 Window {
     width: 1280
     height: 960
+    minimumWidth: 500
+    minimumHeight: 400
     visible: true
 
     color: "#111B22"

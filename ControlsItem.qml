@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Dialogs 1.3
 import QtGraphicalEffects 1.13
+import QtQml 2.15
 
 Item {
     id: root
@@ -56,6 +57,8 @@ Item {
 
         spacing: 16
 
+        readonly property string _prefix: Qt.platform.os === "windows" ? 'file:///' : 'file://'
+
         LineAndButton {
             id: selectSource
 
@@ -69,9 +72,8 @@ Item {
                 text: "Выбрать файл-источник"
                 onClicked: {
                     fileDialog.callback = () => {
-                        const _prefix = 'file://';
-                        const s = (fileDialog.fileUrl + '').startsWith(_prefix)
-                                ? (fileDialog.fileUrl + '').slice(_prefix.length)
+                        const s = (fileDialog.fileUrl + '').startsWith(col._prefix)
+                                ? (fileDialog.fileUrl + '').slice(col._prefix.length)
                                 : fileDialog.fileUrl + '';
                         selectSource.textField.text = s;
                     };
@@ -93,9 +95,8 @@ Item {
             }
             button.onClicked: {
                 fileDialog.callback = () => {
-                    const _prefix = 'file://';
-                    const s = (fileDialog.fileUrl + '').startsWith(_prefix)
-                    ? (fileDialog.fileUrl + '').slice(_prefix.length)
+                    const s = (fileDialog.fileUrl + '').startsWith(col._prefix)
+                    ? (fileDialog.fileUrl + '').slice(col._prefix.length)
                     : fileDialog.fileUrl + '';
                     selectDir.textField.text = s;
                 };

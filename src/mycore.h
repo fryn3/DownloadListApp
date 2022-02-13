@@ -99,7 +99,7 @@ private:
 	///
 	/// \brief Максимальное количество параллельных запросов (скачиваний).
 	///
-	int _maxParallelReplies { 2 };
+	int _maxParallelReplies { 5 };
 
 	///
 	/// \brief Путь папки сохранения.

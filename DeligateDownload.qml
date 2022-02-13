@@ -9,6 +9,8 @@ TwoColorProgressBar {
     property int num
     property int stateRow: DownloadListModel.StateNone
     property string text: "value"
+    property real bytesReceived: 0
+    property real bytesTotal: 1
 
     implicitWidth:  730
     implicitHeight: 56
@@ -16,6 +18,8 @@ TwoColorProgressBar {
     radius: 4
     color: "#2B3B47"
     progressColor: "#414D4C"
+    value: bytesReceived
+    to: bytesTotal
 
     Behavior on value {
         NumberAnimation {
@@ -133,6 +137,13 @@ TwoColorProgressBar {
         },
         State {
             when: stateRow === DownloadListModel.StateProcess
+            PropertyChanges {
+                target: root
+                color: "#2B3B47"
+                progressColor: "#414D4C"
+                value: bytesReceived
+                to: bytesTotal
+            }
         },
         State {
             when: stateRow === DownloadListModel.StateDone

@@ -10,9 +10,6 @@ QString MyCore::FORMAT_SUBDIR = "yyyy_MM_dd";
 MyCore::MyCore(QObject *parent)
 	: QObject(parent), _model(new DownloadListModel(this)), _d(new Downloader(this))
 {
-	connect(_d, &Downloader::parallelReplysChanged, this, [this] {
-		qDebug() << "Downloader::parallelReplysChanged" << _d->parallelReplies();
-	});
 	connect(this, &MyCore::sourcePathChanged, this, &MyCore::checkAllStates, Qt::QueuedConnection);
 	connect(this, &MyCore::destinationPathChanged, this, &MyCore::checkAllStates, Qt::QueuedConnection);
 
